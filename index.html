@@ -1,0 +1,256 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#f7edcf">
+  <meta name="description" content="Likhatro - make playful photobooth memories from anywhere.">
+  <title>Likhatro - Your playful web photobooth</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Shrikhand&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="tablet.css">
+</head>
+<body>
+  <div class="grain" aria-hidden="true"></div>
+  <div class="phone-notice" role="dialog" aria-labelledby="phone-title">
+    <div class="phone-notice__card">
+      <span class="brand-mark brand-mark--small">L</span>
+      <h1 id="phone-title">A little more room, please!</h1>
+      <p>Likhatro is designed for tablets and desktops. Open it on a wider screen for the full photobooth experience.</p>
+    </div>
+  </div>
+
+  <header class="site-header">
+    <button class="wordmark" data-go="landing" aria-label="Go to Likhatro home">
+      <span class="brand-mark">L</span>
+      <span>Likhatro</span>
+    </button>
+    <nav class="header-actions" aria-label="Main navigation">
+      <button class="text-button" data-open-tutorial>How it works</button>
+      <button class="sound-button" id="sound-toggle" type="button" aria-pressed="true" aria-label="Turn sound off">
+        <span aria-hidden="true">♪</span><span>Sound on</span>
+      </button>
+    </nav>
+  </header>
+
+  <main id="app">
+    <section class="screen screen--active landing-screen" data-screen="landing" aria-labelledby="landing-title">
+      <div class="landing-copy">
+        <span class="eyebrow">Your browser-based photobooth</span>
+        <h1 id="landing-title">Make memories.<br><em>Make them yours.</em></h1>
+        <p>Pick a frame, find your look, and capture the chaos—no booth rental required.</p>
+        <div class="button-row">
+          <button class="button button--primary" data-go="menu">Get started <span aria-hidden="true">→</span></button>
+          <button class="button button--ghost" data-open-tutorial>Take a quick tour</button>
+        </div>
+        <div class="trust-line"><span>● No account</span><span>● Photos stay on your device</span></div>
+      </div>
+      <div class="hero-art" aria-label="A colorful stack of sample photobooth strips">
+        <div class="sunburst" aria-hidden="true"></div>
+        <div class="photo-strip photo-strip--back" aria-hidden="true">
+          <div class="mini-photo mini-photo--1"></div><div class="mini-photo mini-photo--2"></div><div class="mini-photo mini-photo--3"></div>
+        </div>
+        <div class="photo-strip photo-strip--front" aria-hidden="true">
+          <div class="mini-photo mini-photo--4"><span>✦</span></div><div class="mini-photo mini-photo--5"><span>☻</span></div><div class="mini-photo mini-photo--6"><span>♥</span></div>
+          <strong>LIKHA NATIN 'TO!</strong>
+        </div>
+        <div class="doodle doodle--spark">✦</div><div class="doodle doodle--heart">♥</div><div class="doodle doodle--smile">☺</div>
+      </div>
+      <div class="template-marquee" aria-hidden="true">
+        <span>classic strip</span><i>✦</i><span>postcard</span><i>✦</i><span>four-up</span><i>✦</i><span>custom canvas</span><i>✦</i>
+      </div>
+    </section>
+
+    <section class="screen menu-screen" data-screen="menu" aria-labelledby="menu-title">
+      <div class="section-heading section-heading--center">
+        <span class="step-tag">Welcome in</span>
+        <h2 id="menu-title">Choose your booth</h2>
+        <p>One booth today. Plenty more mischief later.</p>
+      </div>
+      <div class="booth-carousel">
+        <button class="carousel-arrow" type="button" disabled aria-label="Previous booth">←</button>
+        <article class="booth-card">
+          <div class="booth-preview">
+            <div class="curtain curtain--left"></div><div class="curtain curtain--right"></div>
+            <div class="booth-camera">●</div>
+            <div class="preview-strip"><i></i><i></i><i></i></div>
+          </div>
+          <div class="booth-card__body">
+            <div><span class="live-pill">Ready</span><h3>The Barkada Booth</h3><p>The full Likhatro experience—frames, filters, and all.</p></div>
+            <button class="button button--primary" data-go="frame-choice">Enter booth <span aria-hidden="true">→</span></button>
+          </div>
+        </article>
+        <button class="carousel-arrow" type="button" disabled aria-label="Next booth">→</button>
+      </div>
+    </section>
+
+    <section class="screen workspace-screen" data-screen="frame-choice" aria-labelledby="frame-choice-title">
+      <div class="progress-header">
+        <button class="back-button" data-back="menu">← Back</button>
+        <ol class="progress-steps" aria-label="Photobooth progress">
+          <li class="active"><span>1</span>Frame</li><li><span>2</span>Look</li><li><span>3</span>Timer</li><li><span>4</span>Capture</li>
+        </ol>
+        <span class="step-count">Step 1 of 4</span>
+      </div>
+      <div class="choice-layout">
+        <div class="choice-copy"><span class="eyebrow">First things first</span><h2 id="frame-choice-title">How do you want to frame it?</h2><p>Start with one of our ready-made layouts, or build a frame that is completely yours.</p></div>
+        <div class="choice-cards">
+          <button class="choice-card" data-frame-route="builtin">
+            <span class="choice-card__art choice-card__art--built"><i></i><i></i><i></i></span>
+            <span class="choice-card__text"><strong>Built-in frames</strong><small>Fast, polished, ready to pose</small></span><span class="choice-card__arrow">→</span>
+          </button>
+          <button class="choice-card choice-card--orange" data-frame-route="custom">
+            <span class="choice-card__art choice-card__art--custom"><i></i><i></i><i></i><i></i></span>
+            <span class="choice-card__text"><strong>Build your own</strong><small>Size, arrange, color, create</small></span><span class="choice-card__arrow">→</span>
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <section class="screen editor-screen" data-screen="frame-editor" aria-labelledby="frame-editor-title">
+      <div class="progress-header">
+        <button class="back-button" data-back="frame-choice">← Back</button>
+        <ol class="progress-steps"><li class="active"><span>1</span>Frame</li><li><span>2</span>Look</li><li><span>3</span>Timer</li><li><span>4</span>Capture</li></ol>
+        <span class="step-count">Step 1 of 4</span>
+      </div>
+      <div class="editor-grid">
+        <aside class="editor-panel properties-panel">
+          <div class="panel-title"><span class="step-tag">Frame studio</span><h2 id="frame-editor-title">Make it yours</h2></div>
+          <label>Frame color <input id="frame-color" type="color" value="#f2d691"></label>
+          <label>Canvas shape
+            <select id="frame-size"><option value="strip">Classic strip</option><option value="postcard">Postcard</option><option value="square">Square</option></select>
+          </label>
+          <label>Photo layout
+            <select id="slot-layout"><option value="3">3 photos</option><option value="4">4 photos</option><option value="2">2 photos</option></select>
+          </label>
+          <label>Corner style <input id="corner-range" type="range" min="0" max="32" value="8"><span class="range-value" id="corner-value">8 px</span></label>
+          <label class="checkbox-label"><input id="show-caption" type="checkbox" checked><span>Show Likhatro caption</span></label>
+        </aside>
+        <div class="frame-stage">
+          <div class="editable-frame layout-3" id="frame-preview">
+            <div class="frame-slot"><span>1</span></div><div class="frame-slot"><span>2</span></div><div class="frame-slot"><span>3</span></div>
+            <strong class="frame-caption">LIKHA NATIN 'TO!</strong>
+          </div>
+          <p class="stage-hint">Your final photos will appear in these spaces.</p>
+        </div>
+        <aside class="editor-panel templates-panel">
+          <h3>Quick starts</h3><p>Choose a palette, then fine-tune it.</p>
+          <div class="swatch-list">
+            <button class="palette-swatch active" data-palette="#f2d691" style="--swatch:#f2d691"><span>Sunny day</span></button>
+            <button class="palette-swatch" data-palette="#28a9cb" style="--swatch:#28a9cb"><span>Pool blue</span></button>
+            <button class="palette-swatch" data-palette="#d54e2a" style="--swatch:#d54e2a"><span>Tomato pop</span></button>
+            <button class="palette-swatch" data-palette="#f7b6c8" style="--swatch:#f7b6c8"><span>Milkshake</span></button>
+            <button class="palette-swatch" data-palette="#273b35" style="--swatch:#273b35"><span>Darkroom</span></button>
+          </div>
+          <button class="button button--primary button--full" data-save-frame>Use this frame →</button>
+        </aside>
+      </div>
+    </section>
+
+    <section class="screen editor-screen" data-screen="mode" aria-labelledby="mode-title">
+      <div class="progress-header">
+        <button class="back-button" data-back="frame-editor">← Back</button>
+        <ol class="progress-steps"><li class="done"><span>✓</span>Frame</li><li class="active"><span>2</span>Look</li><li><span>3</span>Timer</li><li><span>4</span>Capture</li></ol>
+        <span class="step-count">Step 2 of 4</span>
+      </div>
+      <div class="mode-layout">
+        <div class="section-heading section-heading--center"><span class="eyebrow">Set the mood</span><h2 id="mode-title">What's your look?</h2><p>Turn the dial and preview every style live.</p></div>
+        <div class="mode-studio">
+          <div class="live-preview filter-colored" id="filter-preview"><div class="preview-face"><span>☺</span></div><small>Live preview appears here</small></div>
+          <div class="mode-controls">
+            <div class="mode-dial" id="mode-dial">
+              <div class="dial-pointer"></div><div class="dial-center">●</div>
+              <button data-filter="bw" style="--angle:-55deg">B&amp;W</button><button class="active" data-filter="colored" style="--angle:0deg">Color</button><button data-filter="preset" style="--angle:55deg">Preset</button><button data-filter="custom" style="--angle:110deg">Likha</button>
+            </div>
+            <div class="mode-description"><h3 id="mode-name">True Color</h3><p id="mode-copy">Bright, honest, and exactly as the camera sees it.</p></div>
+          </div>
+          <aside class="filter-tray" id="custom-filter-panel" hidden>
+            <h3>Mix your filter</h3>
+            <label>Warmth <input type="range" id="warmth" min="0" max="100" value="20"></label>
+            <label>Contrast <input type="range" id="contrast" min="70" max="150" value="100"></label>
+            <label>Saturation <input type="range" id="saturation" min="0" max="180" value="100"></label>
+          </aside>
+        </div>
+        <button class="button button--primary mode-next" data-go="timer">Keep this look →</button>
+      </div>
+    </section>
+
+    <section class="screen workspace-screen" data-screen="timer" aria-labelledby="timer-title">
+      <div class="progress-header">
+        <button class="back-button" data-back="mode">← Back</button>
+        <ol class="progress-steps"><li class="done"><span>✓</span>Frame</li><li class="done"><span>✓</span>Look</li><li class="active"><span>3</span>Timer</li><li><span>4</span>Capture</li></ol>
+        <span class="step-count">Step 3 of 4</span>
+      </div>
+      <div class="timer-layout">
+        <div class="timer-copy"><span class="eyebrow">Almost camera-ready</span><h2 id="timer-title">Pick your pose time</h2><p>We'll count down before every photo. Enough time to smile—or invent a new face.</p></div>
+        <div class="timer-options" role="radiogroup" aria-label="Countdown duration">
+          <button class="timer-option" data-timer="3" role="radio" aria-checked="false"><strong>3</strong><span>seconds</span><small>Quick snap</small></button>
+          <button class="timer-option active" data-timer="5" role="radio" aria-checked="true"><strong>5</strong><span>seconds</span><small>Just right</small></button>
+          <button class="timer-option" data-timer="10" role="radio" aria-checked="false"><strong>10</strong><span>seconds</span><small>Group pose</small></button>
+        </div>
+        <div class="timer-summary"><span>Frame: <b id="summary-layout">3-photo strip</b></span><span>Look: <b id="summary-filter">True Color</b></span><span>Timer: <b id="summary-timer">5 seconds</b></span></div>
+        <button class="button button--primary" data-start-camera>Open the camera →</button>
+      </div>
+    </section>
+
+    <section class="screen capture-screen" data-screen="capture" aria-labelledby="capture-title">
+      <div class="capture-topbar"><button class="back-button" data-leave-camera>← Exit camera</button><div><span class="capture-dot"></span><span id="shot-progress">Photo 1 of 3</span></div><button class="text-button" id="switch-camera">Switch camera</button></div>
+      <h2 class="sr-only" id="capture-title">Photo capture</h2>
+      <div class="camera-shell">
+        <video id="camera-video" autoplay playsinline muted></video>
+        <img id="upload-preview" alt="Uploaded photo preview" hidden>
+        <div class="camera-placeholder" id="camera-placeholder"><span>◎</span><h3>Camera not connected</h3><p>Allow camera access, or choose a photo from your device.</p></div>
+        <div class="camera-flash" id="camera-flash"></div><div class="countdown" id="countdown" aria-live="assertive"></div>
+        <div class="camera-filter-overlay" id="camera-filter-overlay"></div>
+      </div>
+      <div class="capture-controls">
+        <label class="button button--ghost upload-button">Upload photo<input id="photo-upload" type="file" accept="image/png,image/jpeg" hidden></label>
+        <button class="shutter" id="shutter" aria-label="Take photo"><span></span></button>
+        <span class="timer-badge"><b id="capture-timer">5s</b> timer</span>
+      </div>
+      <p class="privacy-note">Your camera stays private. Nothing is uploaded.</p>
+      <canvas id="capture-canvas" hidden></canvas>
+    </section>
+
+    <section class="screen workspace-screen" data-screen="review" aria-labelledby="review-title">
+      <div class="progress-header">
+        <button class="back-button" data-return-camera>← Camera</button>
+        <ol class="progress-steps"><li class="done"><span>✓</span>Frame</li><li class="done"><span>✓</span>Look</li><li class="done"><span>✓</span>Timer</li><li class="active"><span>4</span>Review</li></ol>
+        <span class="step-count">Final check</span>
+      </div>
+      <div class="review-layout">
+        <div class="section-heading"><span class="eyebrow">Looking good</span><h2 id="review-title">Keep them all?</h2><p>Select any photo you'd like to retake, or keep the whole set.</p></div>
+        <div class="review-content">
+          <div class="result-frame" id="review-frame"></div>
+          <aside class="retake-panel"><h3>Retake a photo?</h3><p>Choose one from the frame, then jump back behind the camera.</p><div id="retake-status" class="selection-status">No photo selected</div><button class="button button--ghost button--full" id="retake-button" disabled>Retake selected</button><button class="button button--primary button--full" id="finish-button">Love it—finish →</button></aside>
+        </div>
+      </div>
+    </section>
+
+    <section class="screen final-screen" data-screen="final" aria-labelledby="final-title">
+      <div class="confetti" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div>
+      <div class="final-copy"><span class="eyebrow">That's a wrap!</span><h2 id="final-title">You made a memory.</h2><p>Download it, share it, keep it somewhere good.</p></div>
+      <div class="final-result"><canvas id="final-canvas"></canvas></div>
+      <div class="download-actions">
+        <button class="button button--primary" id="download-png">Download PNG ↓</button>
+        <button class="button button--ghost" id="download-jpg">Download JPG ↓</button>
+        <button class="button button--ghost" id="download-individual">Download individual photos</button>
+      </div>
+      <button class="text-button final-home" id="start-over">← Back to main menu</button>
+    </section>
+  </main>
+
+  <dialog class="tutorial-dialog" id="tutorial-dialog">
+    <button class="dialog-close" data-close-tutorial aria-label="Close tutorial">×</button>
+    <div class="tutorial-slide active" data-tutorial-slide="0"><span class="tutorial-number">01</span><div class="tutorial-art tutorial-art--frame"><i></i><i></i><i></i></div><h2>Choose your frame</h2><p>Start ready-made or arrange every photo slot yourself.</p></div>
+    <div class="tutorial-slide" data-tutorial-slide="1"><span class="tutorial-number">02</span><div class="tutorial-art tutorial-art--dial">◒</div><h2>Find your look</h2><p>Go colorful, classic black-and-white, or mix a Likha filter.</p></div>
+    <div class="tutorial-slide" data-tutorial-slide="2"><span class="tutorial-number">03</span><div class="tutorial-art tutorial-art--pose">☺</div><h2>Pose, review, save</h2><p>Retake individual shots and download the finished memory.</p></div>
+    <div class="tutorial-footer"><button class="text-button" data-close-tutorial>Skip</button><div class="tutorial-dots"><i class="active"></i><i></i><i></i></div><button class="button button--primary" id="tutorial-next">Next →</button></div>
+  </dialog>
+
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+  <script src="app.js"></script>
+</body>
+</html>
